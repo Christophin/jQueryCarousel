@@ -1,27 +1,16 @@
-function drawContainer()  {
-    carouselImages.forEach(function(position)  {
-      var image = "<div><img src=\"" + position.image_url + "\"/></div>";
-      $(".container").append(image);
-    });
-};
-
-drawContainer();
-
-$(".container div").addClass("imgBox");
-
 var currentImage = 0;
-var images = $(".imgBox img");
-var imgSelection = images.length;
+var imgSelection = carouselImages.length;
+
 
 var cycleImages = function()  {
-  var image = images.eq(currentImage);
-  images.removeClass("shown");
-  image.addClass("shown");
+  var imgUrl = carouselImages[currentImage].image_url;
+  $(".container").css("background-image", `url(${imgUrl})`);
 }
 
 cycleImages();
 
 $('.next').click(function() {
+  console.log("skdfbskf")
   currentImage += 1;
   if (currentImage > imgSelection - 1) {
     currentImage = 0;
