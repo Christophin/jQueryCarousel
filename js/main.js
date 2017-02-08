@@ -7,14 +7,16 @@ function drawContainer()  {
 
 drawContainer();
 
+$(".container div").addClass("imgBox");
+
 var currentImage = 0;
-var images = $(".container div");
+var images = $(".imgBox img");
 var imgSelection = images.length;
 
 var cycleImages = function()  {
   var image = images.eq(currentImage);
-  images.css("display", "none");
-  image.css("display", "inline-block");
+  images.removeClass("shown");
+  image.addClass("shown");
 }
 
 cycleImages();
